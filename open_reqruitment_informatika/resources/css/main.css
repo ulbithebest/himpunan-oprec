@@ -1,0 +1,54 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: rgba(44, 62, 80, 0.9);
+    transition: background-color 0.3s;
+}
+
+.navbar.scrolled {
+    background-color: #2C3E50;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar-brand {
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.hero-section {
+    position: relative;
+    background: url('https://via.placeholder.com/1600x800') no-repeat center center/cover;
+    color: white;
+    padding: 160px 0;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section p {
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cta-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
