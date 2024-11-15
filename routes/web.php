@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PendaftaranController; // Pastikan baris ini ada
+use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\authController; // Pastikan baris ini ada
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,9 @@ Route::get('/tentang', function () {
 Route::get('/kontak', function () {
     return view('kontak');
 });
+
+Route::get('/login', [authController::class, 'loginShow'])->name('login');
+Route::get('/register', [authController::class, 'registerShow'])->name('register');
 
 // Route untuk menangani data pendaftaran yang dikirim
 Route::post('/submit', [PendaftaranController::class, 'submit'])->name('submit');
