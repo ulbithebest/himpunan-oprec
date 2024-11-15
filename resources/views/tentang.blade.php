@@ -1,5 +1,5 @@
 <!-- resources/views/tentang.blade.php -->
-@extends('layouts.app')
+@extends('layouts.app_navbar')
 
 @section('title', 'Tentang Kami')
 

@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -49,6 +50,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'npm' => ['required', 'digits:9', 'unique:users'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -64,9 +66,20 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
+            'npm' => $data['npm'],
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'role' => 2,
         ]);
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        // Logout the user
+        $this->guard()->logout();
+
+        // Redirect ke halaman login dengan pesan sukses
+        return redirect('/login')->with('status', 'Registration successful. Please login.');
     }
 }
