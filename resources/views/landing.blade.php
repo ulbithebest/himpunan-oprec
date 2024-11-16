@@ -158,6 +158,23 @@
                     <li class="nav-item"><a class="nav-link" href="#">Tentang Kami</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
                 </ul>
+                <ul class="navbar-nav ms-auto">
+                    @guest
+                        <!-- Tombol Login dan Register untuk pengguna yang belum login -->
+                        <li class="nav-item"><a class="btn btn-outline-light ms-3" href="/login">Login</a></li>
+                        <li class="nav-item"><a class="btn btn-light ms-2" href="/register">Register</a></li>
+                    @endguest
+
+                    @auth
+                        <!-- Tombol Logout untuk pengguna yang sudah login -->
+                        <li class="nav-item">
+                            <form action="/logout" method="POST" class="d-inline">
+                                @csrf
+                                <button type="submit" class="btn btn-outline-light ms-3">Logout</button>
+                            </form>
+                        </li>
+                    @endauth
+                </ul>
             </div>
         </div>
     </nav>

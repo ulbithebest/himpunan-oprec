@@ -48,3 +48,6 @@ Route::get('/konfirmasi', [PendaftaranController::class, 'submit'])->name('konfi
 // Route::get('/konfirmasi', function () {
 //     return view('konfirmasi'); // Halaman konfirmasi pendaftaran
 // });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
