@@ -1,6 +1,6 @@
 @extends('admin.partials.layout')
 @section('content')
-    <div class="max-w-xl mx-auto p-6 bg-white mt-16 rounded-lg shadow-md">
+    <div class="w-full mx-auto p-6 bg-white mt-16 rounded-lg shadow-md">
         <h2 class="text-2xl font-bold text-center mb-6">Formulir Pendaftaran</h2>
         
         <form action="{{ route('submit') }}" method="POST">
