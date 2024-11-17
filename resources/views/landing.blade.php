@@ -184,7 +184,7 @@
         <div class="container">
             <h1>Open Recruitment 2024</h1>
             <p>Bergabunglah dengan Himpunan Mahasiswa Informatika untuk berkembang bersama!</p>
-            <a href="/form_pendaftaran" class="cta-btn">Daftar Sekarang</a>
+            <a href="/pendaftaran" class="cta-btn">Daftar Sekarang</a>
         </div>
     </div>
 
