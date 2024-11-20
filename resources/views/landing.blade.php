@@ -184,7 +184,11 @@
         <div class="container">
             <h1>Open Recruitment 2024</h1>
             <p>Bergabunglah dengan Himpunan Mahasiswa Informatika untuk berkembang bersama!</p>
-            <a href="login" class="cta-btn">Daftar Sekarang</a>
+            @if(Auth::check())
+            <a href="{{ url('/form-pendaftaran') }}" class="btn btn-primary">Daftar Sekarang</a>
+            @else
+            <a href="{{ url('/login') }}" class="btn btn-primary">Daftar Sekarang</a>
+            @endif
         </div>
     </div>
 
