@@ -1,5 +1,5 @@
 <!-- resources/views/kontak.blade.php -->
-@extends('layouts.app')
+@extends('layouts.app_navbar')
 
 @section('title', 'Kontak Kami')
 
@@ -17,7 +17,7 @@
             <p><i class="bi bi-envelope-fill text-primary"></i> Email: <a href="mailto:info@informatika.org">info@informatika.org</a></p>
             <p><i class="bi bi-telephone-fill text-primary"></i> Telepon: +62 812-3456-7890</p>
             <p><i class="bi bi-geo-alt-fill text-primary"></i> Alamat: Kampus Informatika, Jalan Pendidikan No. 10, Kota</p>
-            
+
             <!-- Ikon Media Sosial -->
             <div class="mt-4">
                 <h5>Ikuti Kami</h5>

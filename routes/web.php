@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PendaftaranController;
-use App\Http\Controllers\authController; // Pastikan baris ini ada
+use App\Http\Controllers\DashboardController; // Pastikan baris ini ada
+use App\Http\Controllers\AuthController; // Pastikan baris ini ada
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,9 +37,6 @@ Route::get('/kontak', function () {
     return view('kontak');
 });
 
-Route::get('/login', [authController::class, 'loginShow'])->name('login');
-Route::get('/register', [authController::class, 'registerShow'])->name('register');
-
 // Route untuk menangani data pendaftaran yang dikirim
 Route::post('/submit', [PendaftaranController::class, 'submit'])->name('submit');
 
@@ -48,3 +46,25 @@ Route::get('/konfirmasi', [PendaftaranController::class, 'submit'])->name('konfi
 // Route::get('/konfirmasi', function () {
 //     return view('konfirmasi'); // Halaman konfirmasi pendaftaran
 // });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/dashboard', function () {
+    return view('admin.dashboard.dashboard');
+});
+
+Route::get('/pendaftaran', function () {
+    return view('admin.mahasiswa.form_pendaftaran');
+});
+
+Route::get('/user', function () {
+    return view('admin.user.users');
+});
+
+// Login Route
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+// Dashboard Route
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');

@@ -158,6 +158,23 @@
                     <li class="nav-item"><a class="nav-link" href="#">Tentang Kami</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
                 </ul>
+                <ul class="navbar-nav ms-auto">
+                    @guest
+                        <!-- Tombol Login dan Register untuk pengguna yang belum login -->
+                        <li class="nav-item"><a class="btn btn-outline-light ms-3" href="/login">Login</a></li>
+                        <li class="nav-item"><a class="btn btn-light ms-2" href="/register">Register</a></li>
+                    @endguest
+
+                    @auth
+                        <!-- Tombol Logout untuk pengguna yang sudah login -->
+                        <li class="nav-item">
+                            <form action="/logout" method="POST" class="d-inline">
+                                @csrf
+                                <button type="submit" class="btn btn-outline-light ms-3">Logout</button>
+                            </form>
+                        </li>
+                    @endauth
+                </ul>
             </div>
         </div>
     </nav>
@@ -167,7 +184,11 @@
         <div class="container">
             <h1>Open Recruitment 2024</h1>
             <p>Bergabunglah dengan Himpunan Mahasiswa Informatika untuk berkembang bersama!</p>
-            <a href="login" class="cta-btn">Daftar Sekarang</a>
+            @if(Auth::check())
+            <a href="{{ url('/form-pendaftaran') }}" class="btn btn-primary">Daftar Sekarang</a>
+            @else
+            <a href="{{ url('/login') }}" class="btn btn-primary">Daftar Sekarang</a>
+            @endif
         </div>
     </div>
 

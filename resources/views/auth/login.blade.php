@@ -1,59 +1,74 @@
-@extends('auth.layout')
-@section('title', 'Login')
-@section('content')
+@extends('layouts.app')
 
- <!-- component -->
- <div class="bg-gray-100 flex justify-center items-center h-screen">
+@section('content')
+<!-- component -->
+<div class="grid bg-light mt-5 d-flex justify-content-center align-items-center vh-75">
     <!-- Left: Image -->
-    <div class="w-1/2 h-screen flex-shrink-0 hidden lg:flex justify-center items-center">
-        <img src="images/logo-himatif.png" alt="Placeholder Image"
-            class="object-cover max-h-full border border-white rounded-md w-3/5">
+    <div class="w-50 h-75 g-cole-4 d-none d-lg-flex justify-content-center align-items-center">
+        <img src="images/logo-himatif.png" alt="Placeholder Image" width="500" height="500"
+        class="img-fluid me-2 border border-white rounded">
     </div>
     <!-- Right: Login Form -->
-    <div class="lg:p-20 md:p-16 sm:12 p-8 w-full lg:w-1/2 flex-grow">
-        <h1 class="font-bold text-2xl text-center">LOGIN</h1>
-        <br>
-        <div class="text-center">
-            <a href="https://www.instagram.com/himatif.ulbi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-                <h2 class="font-bold text-3xl">
-                    OpRec-
-                    <span class="bg-[#f84525] text-white px-2 rounded-md">Hima</span>
-                </h2>
-            </a>
+    <div class="p-lg-5 g-cole-4 p-md-4 p-3 w-50 me-5 w-lg-50">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-primary">
+                OPREC
+                <span class="bg-danger text-white px-2 rounded">Hima</span> 
+            </h2>
         </div>
 
         <form action="{{ route('login') }}" method="POST">
             @csrf
             <!-- Username Input -->
-            <div class="mb-6">
-                <label for="username" class="block text-gray-600">NPM</label>
-                <input type="text" id="username" name="npm"
-                    class="w-full lg:w-36 border border-gray-300 rounded-md py-3 px-4 focus:outline-none focus:border-blue-500"
-                    autocomplete="off" placeholder="NPM">
+            <div class="mb-3">
+                <label for="username" class="form-label text-secondary">{{ __('Email Address') }}</label>
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <!-- Password Input -->
-            <div class="mb-6">
-                <label for="password" class="block text-gray-600">Password</label>
-                <input type="password" id="password" name="password"
-                    class="w-full lg:w-36 border border-gray-300 rounded-md py-3 px-4 focus:outline-none focus:border-blue-500"
-                    autocomplete="off" placeholder="Password">
+            <div class="mb-3">
+                <label for="password" class="form-label text-secondary">Password</label>
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <!-- Remember Me Checkbox -->
-            <div class="mb-4 flex items-center">
-                <input type="checkbox" id="remember" name="remember" class="text-blue-500">
-                <label for="remember" class="text-gray-600 ml-2">Remember Me</label>
+            <div class="mb-3 form-check">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                    <label class="form-check-label" for="remember">
+                        {{ __('Remember Me') }}
+                    </label>
+                </div>
             </div>
             <!-- Forgot Password Link -->
-            <div class="mb-6 text-blue-500">
-                <a href="#" class="hover:underline">Forgot Password?</a>
+            <div class="mb-3 text-primary">
+                @if (Route::has('password.request'))
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+                @endif
             </div>
             <!-- Login Button -->
-            <button type="submit"
-                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full">Login</button>
+            <button type="submit" class="btn btn-primary w-100">
+                {{ __('Login') }}
+            </button>
         </form>
-        <!-- Sign up  Link -->
-        <div class="mt-6 text-blue-500 text-center">
-            <a href="{{route('register')}}" class="hover:underline">Sign up Here</a>
+        <!-- Sign up Link -->
+        <div class="mt-2 text-primary text-center">
+            <a href="{{route('register')}}" class="text-decoration-none">Sign up Here</a>
         </div>
     </div>
 </div>
+
+@endsection
