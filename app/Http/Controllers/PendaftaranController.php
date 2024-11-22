@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pendaftaran;
 
 class PendaftaranController extends Controller
 {
@@ -34,7 +35,48 @@ class PendaftaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validasi input
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'jurusan' => 'required|string',
+            'divisi' => 'required|string',
+            'motivasi' => 'required|string',
+            'foto_diri' => 'required|file|mimes:jpg,jpeg,png|max:2048',
+            'cv_sertif' => 'required|file|mimes:pdf|max:5120',
+        ]);
+
+        // Ambil nama dan npm dari user terkait
+        $user = auth()->user();
+        $npm = $user->npm;
+        $nama = str_replace(' ', '_', strtolower($user->name));
+
+        // Format nama file
+        $file_name_format = "{$npm}_{$nama}";
+
+        // Simpan file foto diri ke public/uploads/foto_diri/
+        $foto_diri_path = $request->file('foto_diri')->move(
+            public_path('uploads/foto_diri'),
+            "{$file_name_format}_foto." . $request->file('foto_diri')->getClientOriginalExtension()
+        );
+
+        // Simpan file CV dan Sertifikat ke public/uploads/cv_sertif/
+        $cv_sertif_path = $request->file('cv_sertif')->move(
+            public_path('uploads/cv_sertif'),
+            "{$file_name_format}_cvsertif." . $request->file('cv_sertif')->getClientOriginalExtension()
+        );
+
+        // Simpan data ke database
+        $pendaftaran = Pendaftaran::create([
+            'user_id' => $request->user_id,
+            'jurusan' => $request->jurusan,
+            'divisi' => $request->divisi,
+            'motivasi' => $request->motivasi,
+            'foto_diri' => "uploads/foto_diri/" . basename($foto_diri_path),
+            'cv_sertif' => "uploads/cv_sertif/" . basename($cv_sertif_path),
+        ]);
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('form_pendaftaran.index')->with('success', 'Pendaftaran berhasil dikirim.');
     }
 
     /**

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\DashboardController; // Pastikan baris ini ada
 use App\Http\Controllers\AuthController; // Pastikan baris ini ada
+use App\Models\Pendaftaran;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,10 +56,9 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard.dashboard');
 });
 
-// Route::get('/pendaftaran', function () {
-//     return view('admin.mahasiswa.form_pendaftaran');
-// });
+// Pendaftaran
 Route::get('pendaftaran', [PendaftaranController::class, 'index'])->name('form_pendaftaran.index');
+Route::post('pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
 
 Route::get('/user', function () {
     return view('admin.user.users');
