@@ -54,9 +54,10 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard.dashboard');
 });
 
-Route::get('/pendaftaran', function () {
-    return view('admin.mahasiswa.form_pendaftaran');
-});
+// Route::get('/pendaftaran', function () {
+//     return view('admin.mahasiswa.form_pendaftaran');
+// });
+Route::get('pendaftaran', [PendaftaranController::class, 'index'])->name('form_pendaftaran.index');
 
 Route::get('/user', function () {
     return view('admin.user.users');

@@ -12,13 +12,7 @@
             </a>
         </li>
 
-        <li class="mb-1 group">
-            <a href="#"
-                class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
-                <i class="fa-regular fa-newspaper mr-3 text-lg"></i>
-                <span class="text-sm">Pengumuman</span>
-            </a>
-        </li>
+        @if (Auth::check() && Auth::user()->role == 1)
         <li class="mb-1 group">
             <a href="/user"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
@@ -28,33 +22,28 @@
         </li>
         <li class="mb-1 group">
             <a href="#"
-                class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                <i class="fa-regular fa-user mr-3 text-lg"></i>
-                <span class="text-sm">Mahasiswa</span>
-                <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
-            </a>
-            <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                <li class="mb-4">
-                    <a href="#"
-                        class="text-gray-300 text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">
-                        Data Diri</a>
-                </li>
-            </ul>
-            <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                <li class="mb-4">
-                    <a href="/pendaftaran"
-                        class="text-gray-300 text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">
-                        Form Pendaftaran</a>
-                </li>
-            </ul>
-        </li>
-        <li class="mb-1 group">
-            <a href="#"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                 <i class="fa-regular fa-folder mr-3 text-lg"></i>
                 <span class="text-sm">Docs Pendaftar</span>
             </a>
         </li>
+        @endif
+        @if (Auth::check() && Auth::user()->role == 2)
+            <li class="mb-1">
+                <a href="{{ route('form_pendaftaran.index') }}"
+                    class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white">
+                    <i class="fa-regular fa-folder mr-3 text-lg"></i>
+                    <span class="text-sm">Form Pendaftaran</span>
+                </a>
+            </li>        
+            <li class="mb-1">
+                <a href="#"
+                    class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <i class="fa-regular fa-newspaper mr-3 text-lg"></i>
+                    <span class="text-sm">Pengumuman</span>
+                </a>
+            </li>
+        @endif
         <li class="mb-1 group">
             <a href="#"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
