@@ -47,8 +47,7 @@
             <!-- No. Telepon -->
             <div class="mb-3">
                 <label for="phone" class="form-label text-secondary">{{ __('No. Telepon (WhatsApp)') }}</label>
-                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
-                       name="phone" value="{{ old('phone') }}" placeholder="Contoh: 08XXXXXXXXXX" required>
+                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" placeholder="Contoh: 08XXXXXXXXXX" required>
 
                 @error('phone')
                     <span class="invalid-feedback" role="alert">

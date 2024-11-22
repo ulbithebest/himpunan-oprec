@@ -53,6 +53,11 @@ class RegisterController extends Controller
             'npm' => ['required', 'digits:9', 'unique:users'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => [
+                'required', // Wajib diisi
+                'regex:/^08[0-9]{8,12}$/', // Validasi format dimulai dengan 08
+                'unique:users', // Tidak boleh duplikat
+            ],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -69,6 +74,7 @@ class RegisterController extends Controller
             'npm' => $data['npm'],
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'], // Simpan nomor telepon
             'password' => Hash::make($data['password']),
             'role' => 2,
         ]);
