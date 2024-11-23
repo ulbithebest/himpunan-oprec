@@ -21,7 +21,7 @@
             </a>
         </li>
         <li class="mb-1 group">
-            <a href="#"
+            <a href="{{ route('admin.listPendaftaran') }}"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                 <i class="fa-regular fa-folder mr-3 text-lg"></i>
                 <span class="text-sm">Docs Pendaftar</span>
@@ -35,7 +35,7 @@
                     <i class="fa-regular fa-folder mr-3 text-lg"></i>
                     <span class="text-sm">Form Pendaftaran</span>
                 </a>
-            </li>        
+            </li>
             <li class="mb-1">
                 <a href="#"
                     class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">

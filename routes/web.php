@@ -59,6 +59,10 @@ Route::get('/dashboard', function () {
 // Pendaftaran
 Route::get('pendaftaran', [PendaftaranController::class, 'index'])->name('form_pendaftaran.index');
 Route::post('pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
+Route::get('/download-cv', [PendaftaranController::class, 'downloadCv'])->name('download.cv');
+
+// List Pendaftaran di admin
+Route::get('/admin/pendaftaran', [PendaftaranController::class, 'docsPendaftar'])->name('admin.listPendaftaran');
 
 Route::get('/user', function () {
     return view('admin.user.users');

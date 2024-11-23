@@ -20,6 +20,12 @@
                 <input type="text" name="nim" id="nim" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none bg-gray-200 text-gray-700 cursor-not-allowed" value="{{ auth()->user()->npm }}" disabled>
             </div>
 
+            <!-- No. Telepon -->
+            <div class="mb-4">
+                <label for="phone" class="block text-gray-700 font-medium mb-2">No. Telepon</label>
+                <input type="text" name="phone" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none bg-gray-200 text-gray-700 cursor-not-allowed" value="{{ auth()->user()->phone }}" disabled>
+            </div>
+
             <!-- Jurusan -->
             <div class="mb-4">
                 <label for="jurusan" class="block text-gray-700 font-medium mb-2">Jurusan</label>

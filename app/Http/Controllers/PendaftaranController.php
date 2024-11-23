@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pendaftaran;
+use Illuminate\Support\Facades\Response;
 
 class PendaftaranController extends Controller
 {
@@ -14,6 +15,12 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
+        $pendaftaran = Pendaftaran::where('user_id', auth()->user()->id)->first();
+
+        if ($pendaftaran) {
+            return view('admin.mahasiswa.show_pendaftaran', compact('pendaftaran'));
+        }
+
         return view('admin.mahasiswa.form_pendaftaran');
     }
 
@@ -122,5 +129,36 @@ class PendaftaranController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function downloadCv()
+    {
+        // Ambil user terkait
+        $user = auth()->user();
+        $pendaftaran = Pendaftaran::where('user_id', $user->id)->first();
+
+        // Path file di server
+        $filePath = public_path($pendaftaran->cv_sertif);
+
+        // Nama file unduhan (NPM + Nama)
+        $downloadName = "{$user->npm}_" . str_replace(' ', '_', strtolower($user->name)) . "_cvsertif.pdf";
+
+        // Periksa apakah file ada
+        if (file_exists($filePath)) {
+            // Unduh file dengan nama yang diformat
+            return Response::download($filePath, $downloadName);
+        }
+
+        // Jika file tidak ditemukan
+        return redirect()->back()->with('error', 'File tidak ditemukan.');
+    }
+
+    public function docsPendaftar()
+    {
+        // Ambil semua data pendaftaran dengan relasi user
+        $pendaftaran = Pendaftaran::with('user')->get();
+
+        // Kirim data ke view
+        return view('admin.dokumen.docs', compact('pendaftaran'));
     }
 }
