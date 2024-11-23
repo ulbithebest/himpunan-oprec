@@ -161,4 +161,11 @@ class PendaftaranController extends Controller
         // Kirim data ke view
         return view('admin.dokumen.docs', compact('pendaftaran'));
     }
+
+    public function showPendaftar($id)
+    {
+        $pendaftaran = Pendaftaran::findOrFail($id);
+
+        return view('admin.dokumen.show', compact('pendaftaran'));
+    }
 }

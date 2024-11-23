@@ -63,6 +63,8 @@ Route::get('/download-cv', [PendaftaranController::class, 'downloadCv'])->name('
 
 // List Pendaftaran di admin
 Route::get('/admin/pendaftaran', [PendaftaranController::class, 'docsPendaftar'])->name('admin.listPendaftaran');
+Route::get('/admin/pendaftaran/{id}', [PendaftaranController::class, 'showPendaftar'])->name('admin.listShow');
+
 
 Route::get('/user', function () {
     return view('admin.user.users');
