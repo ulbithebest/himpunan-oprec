@@ -56,15 +56,6 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard.dashboard');
 });
 
-<<<<<<< HEAD
-Route::get('/pendaftaran', function () {
-    return view('admin.mahasiswa.form_pendaftaran');
-});
-
-Route::get('/user', function () {
-    return view('admin.user.users');
-});
-=======
 // Pendaftaran
 Route::get('pendaftaran', [PendaftaranController::class, 'index'])->name('form_pendaftaran.index');
 Route::post('pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
@@ -85,4 +76,3 @@ Route::post('/login', [AuthController::class, 'login']);
 
 // Dashboard Route
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
->>>>>>> 6ab7ba13c6d06ef7584eb12785a09fb6bc91b241
