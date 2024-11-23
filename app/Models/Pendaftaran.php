@@ -1,7 +1,5 @@
 <?php
 
-// app/Models/Pendaftaran.php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,16 +10,21 @@ class Pendaftaran extends Model
     use HasFactory;
 
     // Tentukan tabel yang digunakan
-    protected $table = 'pendaftaran';  // Pastikan nama tabel benar
+    protected $table = 'pendaftaran';
 
     // Tentukan kolom yang dapat diisi (mass assignable)
     protected $fillable = [
-        'nama',
-        'nim',
+        'user_id',
         'jurusan',
-        'email',
         'divisi',
-        'motivasi'
+        'motivasi',
+        'foto_diri',
+        'cv_sertif'
     ];
-}
 
+    // Definisikan relasi ke model User
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+}

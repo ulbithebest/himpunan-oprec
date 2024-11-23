@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'email_verified_at' => null,
-            'password' => Hash::make('admin123'), // Ganti 'password123' dengan kata sandi yang diinginkan
+            'phone' => '089657140789',
+            'password' => Hash::make('admin123'),
             'remember_token' => null,
             'role' => 1, // Role sebagai admin
             'created_at' => Carbon::now(),

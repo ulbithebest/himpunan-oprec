@@ -12,6 +12,7 @@
             </a>
         </li>
 
+<<<<<<< HEAD
         <li class="mb-1 group">
             <a href="#"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
@@ -19,6 +20,9 @@
                 <span class="text-sm">Pengumuman</span>
             </a>
         </li>
+=======
+        @if (Auth::check() && Auth::user()->role == 1)
+>>>>>>> 6ab7ba13c6d06ef7584eb12785a09fb6bc91b241
         <li class="mb-1 group">
             <a href="/user"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
@@ -27,6 +31,7 @@
             </a>
         </li>
         <li class="mb-1 group">
+<<<<<<< HEAD
             <a href="#"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                 <i class="fa-regular fa-user mr-3 text-lg"></i>
@@ -50,11 +55,34 @@
         </li>
         <li class="mb-1 group">
             <a href="#"
+=======
+            <a href="{{ route('admin.listPendaftaran') }}"
+>>>>>>> 6ab7ba13c6d06ef7584eb12785a09fb6bc91b241
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                 <i class="fa-regular fa-folder mr-3 text-lg"></i>
                 <span class="text-sm">Docs Pendaftar</span>
             </a>
         </li>
+<<<<<<< HEAD
+=======
+        @endif
+        @if (Auth::check() && Auth::user()->role == 2)
+            <li class="mb-1">
+                <a href="{{ route('form_pendaftaran.index') }}"
+                    class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white">
+                    <i class="fa-regular fa-folder mr-3 text-lg"></i>
+                    <span class="text-sm">Form Pendaftaran</span>
+                </a>
+            </li>
+            <li class="mb-1">
+                <a href="#"
+                    class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <i class="fa-regular fa-newspaper mr-3 text-lg"></i>
+                    <span class="text-sm">Pengumuman</span>
+                </a>
+            </li>
+        @endif
+>>>>>>> 6ab7ba13c6d06ef7584eb12785a09fb6bc91b241
         <li class="mb-1 group">
             <a href="#"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">

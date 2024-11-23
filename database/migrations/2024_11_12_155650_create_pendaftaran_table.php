@@ -10,18 +10,19 @@ class CreatePendaftaranTable extends Migration
 {
     public function up()
     {
-        // database/migrations/{timestamp}_create_pendaftaran_table.php
         Schema::create('pendaftaran', function (Blueprint $table) {
-         $table->id();
-         $table->string('nama');
-         $table->string('nim');
-         $table->string('jurusan');
-         $table->string('email');
-         $table->string('divisi');
-         $table->text('motivasi')->nullable();
-         $table->timestamps();
-});
+            $table->id();
+            $table->unsignedBigInteger('user_id'); // Kolom Foreign Key
+            $table->string('jurusan');
+            $table->string('divisi');
+            $table->text('motivasi');
+            $table->string('foto_diri');
+            $table->string('cv_sertif');
+            $table->timestamps();
 
+            // Menambahkan Foreign Key Constraint
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
     }
 
     public function down()
