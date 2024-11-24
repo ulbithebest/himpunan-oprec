@@ -19,7 +19,7 @@
 
         @if (Auth::check() && Auth::user()->role == 1)
         <li class="mb-1 group">
-            <a href="/user"
+            <a href="{{ route('admin.usersIndex') }}"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white">
                 <i class="fa-regular fa-user mr-3 text-lg"></i>
                 <span class="text-sm">User</span>
