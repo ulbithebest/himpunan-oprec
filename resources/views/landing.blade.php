@@ -161,7 +161,7 @@
                 <ul class="navbar-nav ms-auto">
                     @guest
                         <!-- Tombol Login dan Register untuk pengguna yang belum login -->
-                        <li class="nav-item"><a class="btn btn-outline-light ms-3" href="/login">Login</a></li>
+                        <li class="nav-item"><a class="btn btn-outline-light ms-2" href="/login">Login</a></li>
                         <li class="nav-item"><a class="btn btn-light ms-2" href="/register">Register</a></li>
                     @endguest
 
