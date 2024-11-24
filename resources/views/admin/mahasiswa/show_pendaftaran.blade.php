@@ -1,6 +1,6 @@
 @extends('admin.partials.layout')
 @section('content')
-    <div class="w-3/6 mx-auto pl-60 p-6 bg-white mt-16 rounded-lg shadow-md">
+    <div class="w-4/6 md:w-3/6 mx-auto pl-0 md:pl-60 p-6 bg-white mt-16 rounded-lg shadow-md">
         <h2 class="text-2xl font-bold text-center mb-6">Data Pendaftaran Anda</h2>
 
         <!-- Nama Lengkap -->

@@ -49,8 +49,38 @@
             });
         });
     </script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 
+    <script>
+        const sidebar = document.getElementById("sidebar");
+        const sidebarOverlay = document.getElementById("sidebarOverlay");
+        const sidebarToggle = document.getElementById("sidebarToggle");
+
+        // Fungsi untuk toggle sidebar
+        const toggleSidebar = () => {
+            sidebar.classList.toggle("-translate-x-full"); // Toggle posisi sidebar
+            sidebarOverlay.classList.toggle("hidden"); // Toggle visibilitas overlay
+            sidebarOverlay.classList.toggle("opacity-0"); // Toggle transparansi overlay
+        };
+
+        // Event listener untuk tombol toggle
+        sidebarToggle.addEventListener("click", toggleSidebar);
+
+        // Event listener untuk overlay (menutup sidebar jika overlay diklik)
+        sidebarOverlay.addEventListener("click", toggleSidebar);
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script>
+        const sidebar = document.querySelector('.sidebar-menu');
+        const overlay = document.querySelector('.sidebar-overlay');
+        const toggleSidebar = () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+            overlay.classList.toggle('opacity-0');
+        };
+    
+        overlay.addEventListener('click', toggleSidebar);
+    </script>
+    
     @if (session('success'))
     <script>
         Swal.fire({
