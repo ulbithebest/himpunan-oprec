@@ -10,7 +10,7 @@
     </a>
     <ul class="mt-4">
         <li class="mb-1 group active">
-            <a href="#"
+            <a href="../dashboard"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white">
                 <i class="ri-home-2-line mr-3 text-lg"></i>
                 <span class="text-sm">Dashboard</span>
@@ -41,20 +41,33 @@
                 <span class="text-sm">Form Pendaftaran</span>
             </a>
         </li>
-        <li class="mb-1">
+        {{-- <li class="mb-1">
             <a href="#"
                 class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white">
                 <i class="fa-regular fa-newspaper mr-3 text-lg"></i>
                 <span class="text-sm">Pengumuman</span>
             </a>
-        </li>
+        </li> --}}
         @endif
         <li class="mb-1 group">
             <a href="#"
-                class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white">
+                class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                 <i class="ri-settings-2-line mr-3 text-lg"></i>
-                <span class="text-sm">Settings</span>
+                <span class="text-sm">Setting</span>
+                <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
             </a>
+            <ul class="pl-7 mt-2 hidden group-[.selected]:block">
+                <li class="mb-4">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"
+                        class="text-gray-300 text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li>
+            </ul>
         </li>
     </ul>
 </div>

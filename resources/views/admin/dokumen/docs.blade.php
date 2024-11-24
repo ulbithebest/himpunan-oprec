@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="h-24 bg-white"></div>
-<div class="container w-3/4 ml-96 items-center">
+<div class="container  w-full md:w-5/6 mx-auto pl-0 md:pl-60 items-center">
     <h1 class="text-3xl font-bold mb-4">All Documents</h1>
     <table class="w-4/5 bg-white shadow-md rounded-lg overflow-hidden">
         <thead>

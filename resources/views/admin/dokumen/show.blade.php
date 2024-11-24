@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="h-24 bg-gray-100"></div>
-<div class="container mx-auto px-4 py-8">
+<div class="container w-full md:w-5/6 mx-auto pl-0 md:pl-60 px-4 py-8">
     <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
         <!-- Header -->
         <div class="bg-blue-500 text-white py-4 px-6">
