@@ -77,7 +77,7 @@
             </div>
 
             <!-- Tombol Kirim -->
-            <button type="submit" class="w-full bg-blue-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-600 transition">
+            <button type="submit" class="w-full bg-blue-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-600">
                 Kirim Pendaftaran
             </button>
         </form>
