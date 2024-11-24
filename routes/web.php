@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DashboardController; // Pastikan baris ini ada
 use App\Http\Controllers\AuthController; // Pastikan baris ini ada
 use App\Models\Pendaftaran;
@@ -61,14 +62,17 @@ Route::get('pendaftaran', [PendaftaranController::class, 'index'])->name('form_p
 Route::post('pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
 Route::get('/download-cv', [PendaftaranController::class, 'downloadCv'])->name('download.cv');
 
+// List Users di admin
+Route::get('/admin/users', [UsersController::class, 'index'])->name('admin.usersIndex');
+
 // List Pendaftaran di admin
 Route::get('/admin/pendaftaran', [PendaftaranController::class, 'docsPendaftar'])->name('admin.listPendaftaran');
 Route::get('/admin/pendaftaran/{id}', [PendaftaranController::class, 'showPendaftar'])->name('admin.listShow');
 
 
-Route::get('/user', function () {
-    return view('admin.user.users');
-});
+// Route::get('/user', function () {
+//     return view('admin.user.users');
+// });
 
 // Login Route
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');

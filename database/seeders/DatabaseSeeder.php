@@ -21,10 +21,10 @@ class DatabaseSeeder extends Seeder
             'id' => 1,
             'npm' => null, // NULL karena tidak ada nilai untuk npm
             'name' => 'admin',
-            'email' => 'admin@gmail.com',
+            'email' => 'penerimaanmahasiswabaru10@gmail.com',
             'email_verified_at' => null,
             'phone' => '089657140789',
-            'password' => Hash::make('admin123'),
+            'password' => Hash::make('oprechmj123'),
             'remember_token' => null,
             'role' => 1, // Role sebagai admin
             'created_at' => Carbon::now(),

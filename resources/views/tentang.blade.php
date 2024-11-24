@@ -4,9 +4,9 @@
 @section('title', 'Tentang Kami')
 
 @section('content')
-<div class="container mt-5 pt-5">
+<div class="container mt-3 pt-3"> <!-- Mengurangi margin dan padding atas -->
     <div class="text-center mb-5">
-        <h2 class="fw-bold">Tentang Kami</h2>
+        <h2 class="fw-bold text-primary">Tentang Kami</h2>
         <p class="text-muted">Kenali lebih dekat Himpunan Mahasiswa Informatika</p>
     </div>
 
@@ -24,7 +24,7 @@
             </ul>
         </div>
         <div class="col-md-6 text-center">
-            <img src="https://via.placeholder.com/400x300" alt="Tentang Kami" class="img-fluid rounded shadow">
+            <img src="{{asset('images/open.jpg')}}" alt="Tentang Kami" class="img-fluid rounded shadow">
         </div>
     </div>
 
